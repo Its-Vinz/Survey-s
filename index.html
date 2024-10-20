@@ -3,96 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Express Yourself</title>
+    <title>Solo Vibes | What Do You Enjoy Alone?</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #00c6ff, #0072ff);
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            color: white;
         }
 
-        .form-container {
+        /* Container for the form */
+        .container {
             background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
             padding: 40px;
-            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-            width: 400px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
         }
 
         h1 {
-            text-align: center;
-            font-size: 28px;
-            color: #ffffff;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
         label {
-            font-size: 14px;
-            color: #e0f7fa;
+            font-size: 1rem;
+            display: block;
+            margin-top: 10px;
+            text-align: left;
         }
 
-        input[type="text"], textarea {
+        input, textarea {
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             margin: 10px 0;
-            border: none;
             border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.7);
-            color: #333;
-            font-size: 16px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border: 2px solid #fff;
         }
 
         input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            background-color: #00c6ff;
-            border: none;
-            border-radius: 10px;
+            background: #00c6ff;
             color: white;
-            font-size: 18px;
+            border: none;
+            font-size: 1.2rem;
+            padding: 15px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
 
         input[type="submit"]:hover {
-            background-color: #0072ff;
+            background: #0072ff;
+        }
+
+        /* Responsive for mobile devices */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
         }
 
         footer {
             text-align: center;
             margin-top: 20px;
-            font-size: 12px;
+            font-size: 0.9rem;
+            color: #ccc;
         }
     </style>
 </head>
 <body>
 
-<div class="form-container">
-    <h1>Express Yourself</h1>
-    <form id="expressForm">
+<div class="container">
+    <h1>Solo Vibes</h1>
+    <p>Tell us what you enjoy doing when you're alone!</p>
+    <form id="soloForm">
         <label for="name">Your Name:</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-        <label for="activity">What do you prefer to do when you're alone?</label>
-        <textarea id="activity" name="activity" rows="4" placeholder="Share your thoughts..." required></textarea>
+        <label for="activity">What do you like doing when alone?</label>
+        <textarea id="activity" name="activity" rows="4" placeholder="Let us know your thoughts..." required></textarea>
 
-        <label for="time">How much time do you like to spend alone (in hours)?</label>
-        <input type="text" id="time" name="time" placeholder="E.g., 1, 2, 3..." required>
+        <label for="time">Preferred time spent alone (hours):</label>
+        <input type="number" id="time" name="time" placeholder="E.g., 1, 2, 3..." required>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Share">
     </form>
 </div>
 
-<footer>&copy; 2024 Express Yourself Platform</footer>
+<footer>&copy; 2024 Solo Vibes Platform</footer>
 
 <script>
-    document.getElementById('expressForm').addEventListener('submit', function(event) {
+    document.getElementById('soloForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
         const name = document.getElementById('name').value;
@@ -100,7 +128,7 @@
         const time = document.getElementById('time').value;
 
         // Example simple alert or sending to the server
-        alert(`Thank you, ${name}! We'll note that you enjoy ${activity} for ${time} hours.`);
+        alert(`Thank you, ${name}! You prefer doing ${activity} for ${time} hours when you're alone.`);
 
         // Later: Send data to a server (using fetch or form action)
         // fetch('/submit', { method: 'POST', body: new FormData(this) });
