@@ -5,231 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Survey-s</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-    	    font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0c1b2b, #3e1f47, #2a2a72);
-            background-size: 300% 300%;
-            animation: gradient 10s ease infinite;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: white;
-        }
-
-	@keyframes gradient {
-	    0% {
-		background-position: 0% 50%;
-	    }
-	    50% {
-		background-position: 100% 50%;
-	    }
-	    100% {
-		background-position: 0% 50%;
-	    }
-	}
-        
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 33px;
-            border-radius: 15px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 400px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            display: block;
-            position: relative;
-        }
-
-        input, textarea {
-            width: 94%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 10px;
-            border: none;
-            font-size: 1rem;
-            color: black;
-        }
-
-        .info-icon {
-            color: #ff6b6b;
-            position: absolute;
-            right: -25px;
-            cursor: pointer;
-        }
-
-        .info-popup {
-            display: none;
-            position: absolute;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 10px;
-            color: white;
-            border-radius: 8px;
-            width: 200px;
-            font-size: 0.9rem;
-            z-index: 1;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .info-icon:hover + .info-popup {
-            display: block;
-        }
-
-	.btn {
-	    background: #000; /* Black color */
-	    color: white;
-	    padding: 12px;
-	    border: none;
-	    border-radius: 10px;
-	    font-size: 1.2rem;
-	    cursor: pointer;
-	    transition: all 0.3s ease;
-	    display: block;
-	    margin: 0 auto;
-	}
-
-	.btn:hover {
-	    background-color: #231f1f; /* Dark grey for hover effect */
-	    transform: scale(1.05); /* Slightly increase size on hover */
-	}
-	
-        .submitted .thank-you {
-            display: block;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                max-width: 300px;
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            input, textarea {
-                font-size: 1rem;
-            }
-        }
-        
-        footer a{
-            text-decoration:none;
-            color: yellow;
-        }
-        
-        .thank-you {
-	    display: none;
-	    position: fixed;
-	    top: 50%;
-	    left: 50%;
-	    transform: translate(-50%, -50%);
-	    background-color: rgba(0, 0, 0, 0.8);
-	    padding: 20px;
-	    color: white;
-	    border-radius: 10px;
-	    z-index: 100;
-	}
-
-	.submitted .thank-you {
-	    display: block;
-	}
-
-	.overlay {
-	    display: none;
-	    position: fixed;
-	    top: 0;
-	    left: 0;
-	    width: 100%;
-	    height: 100%;
-	    background: rgba(0, 0, 0, 0.5);
-	    z-index: 99;
-	}
-
-	.submitted .overlay {
-	    display: block;
-	}
-	
-	@media (max-width: 768px) {
-            #typingText {
-                font-size: 1rem !important; /* Adjust to fit mobile better */
-                max-width: 90vw !important;
-            }
-        }
-
-        @media (max-width: 400px) {
-            #typingText {
-                font-size: 1rem !important; /* Further decrease for very small devices */
-                max-width: 90vw !important;
-            }
-        }
-	    
-        #typingText {
-            line-height: 1.4em;
-            font-size: 1.3rem;
-            border-right: 2px solid white;
-            white-space: nowrap;
-            overflow: hidden;
-            max-width: 95vw;
-        }	
-	
-	    .popup {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1000; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
-        justify-content: center; /* Center the content vertically */
-        align-items: center; /* Center the content horizontally */
-    }
-
-    .popup-content {
-        background-color: white; /* White background */
-        padding: 20px;
-        border-radius: 8px;
-        text-align: center;
-        max-width: 400px;
-        margin: auto;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        color: black;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-	
-    </style>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
 <div class="overlay"></div>
 <div class="container">
-    <h1>Discover Your Time</h1>
+    <h5>"Share your thoughts in this short survey to help shape the future!"</h5>
+    <h3>Discover Your Time</h3>
     <div>
         <p id="typingText"></p>
     </div>
@@ -263,31 +45,23 @@
     <div class="thank-you">
         <p>Thank you for submitting your preferences!</p>
     </div>
-    <footer style="padding-top:20px;text-align:center">&copy; 2024 Survey-s - By <a href="https://github.com/Its-Vinz" target="_blank">Vinz</a></footer>  
+    <footer>&copy; 2024 Survey-s - By <a href="https://github.com/Its-Vinz" target="_blank">Vinz</a></footer>  
 </div>
 
 <div id="popup" class="popup">
     <div class="popup-content">
         <span class="close" id="closePopup">&times;</span>
-        <h4>Important Note</h4>
-        <p>This survey is intended for general purposes to gather insights about individual preferences and activities enjoyed in solitude. Your participation is appreciated!</p>
+        <h4>Your Opinion Matters!</h4>
+        <p>"This survey is designed to gather your preferences and activities you enjoy alone. Your feedback is greatly appreciated!"</p>
     </div>
 </div>
 
 <!-- GSAP for animations -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
 
+<!-- GSAP animation -->
 <script>
-    gsap.from(".container", { opacity: 0, y: 50, duration: 1.5 });
-
     document.getElementById('userForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        document.querySelector('.container').classList.add('submitted');
-    });
-</script>
-
-<script>
-document.getElementById('userForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
     document.querySelector('.container').classList.add('submitted');
@@ -296,66 +70,75 @@ document.getElementById('userForm').addEventListener('submit', function(event) {
 });
 </script>
 
+<!-- Submit popup -->
+<script>
+    gsap.from(".container", { opacity: 0, y: 50, duration: 1.5 });
+
+document.getElementById('userForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    document.querySelector('.container').classList.add('submitted');
+});
+</script>
+
+<!-- Text control upper -->
 <script>
         const texts = [
-            "What do you enjoy doing alone?",
-            "अकेले में क्या करना पसंद है",
-            "तुम्हाला एकटं असताना काय आवडतं?"
-        ];
+        "What do you enjoy doing alone?",
+        "अकेले में क्या करना पसंद है",
+        "तुम्हाला एकटं असताना काय आवडतं?"
+    ];
 
-	let textIndex = 0;
-	let charIndex = 0;
-	const typingTextElement = document.getElementById('typingText');
-	const typingSpeed = 60; // Faster typing speed in milliseconds
-	const deletingSpeed = 50; // Faster deleting speed in milliseconds
-	const delayBetweenTexts = 1000; // Shorter delay before starting to type the next text
+    let textIndex = 0;
+    let charIndex = 0;
+    const typingTextElement = document.getElementById('typingText');
+    const typingSpeed = 60; // Faster typing speed in milliseconds
+    const deletingSpeed = 50; // Faster deleting speed in milliseconds
+    const delayBetweenTexts = 1000; // Shorter delay before starting to type the next text
 
-
-        function typeText() {
-            if (charIndex < texts[textIndex].length) {
-                typingTextElement.textContent += texts[textIndex].charAt(charIndex);
-                charIndex++;
-                setTimeout(typeText, typingSpeed);
-            } else {
-                setTimeout(deleteText, delayBetweenTexts);
-            }
+    function typeText() {
+        if (charIndex < texts[textIndex].length) {
+            typingTextElement.textContent += texts[textIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(typeText, typingSpeed);
+        } else {
+            setTimeout(deleteText, delayBetweenTexts);
         }
+    }
 
-        function deleteText() {
-            if (charIndex > 0) {
-                typingTextElement.textContent = texts[textIndex].substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(deleteText, typingSpeed);
-            } else {
-                textIndex = (textIndex + 1) % texts.length;
-                setTimeout(typeText, typingSpeed);
-            }
+    function deleteText() {
+        if (charIndex > 0) {
+            typingTextElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(deleteText, typingSpeed);
+        } else {
+            textIndex = (textIndex + 1) % texts.length;
+            setTimeout(typeText, typingSpeed);
         }
+    }
 
-        setTimeout(typeText, typingSpeed);
-    </script>
+    setTimeout(typeText, typingSpeed);
+</script>
 
+<!-- Note popup -->
 <script>
-    // Get the popup element
     const popup = document.getElementById("popup");
     const closePopup = document.getElementById("closePopup");
 
-    // Show the popup when the page loads
     window.onload = function() {
-        popup.style.display = "flex"; // Show the popup
+        popup.style.display = "flex";
     };
 
-    // Close the popup when the close button is clicked
     closePopup.onclick = function() {
         popup.style.display = "none";
     };
 
-    // Close the popup when the user clicks outside of the popup content
     window.onclick = function(event) {
         if (event.target == popup) {
             popup.style.display = "none";
         }
     };
 </script>
+
 </body>
 </html>
+
